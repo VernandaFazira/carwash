@@ -37,9 +37,17 @@ class KategoriController extends Controller
         // ddd($request);
         $validatedData = $request->validate([
             'nama_kategori' => 'required',
+            'foto' => 'required|image|mimes:jpeg,png,jpg,|max:2048',
         ]);
-        Kategori::create($validatedData);
-        return redirect('/kategori');
+        $foto = $request->file('foto');
+    $nama_foto = time().'.'.$foto->getClientOriginalExtension();
+    $foto->move(public_path('path/to/foto/'), $nama_foto);
+        $kategori = new Kategori();
+        $kategori->nama_kategori = $request->nama_kategori;
+        $kategori->foto = $nama_foto; // Simpan nama file
+        $kategori->save();
+
+    return redirect('/kategori')->with('success', 'Kategori berhasil ditambahkan.');
     }
 
     /**

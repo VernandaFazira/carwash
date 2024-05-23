@@ -258,6 +258,11 @@
                     <span class="nav-text">Anggota</span>
                 </a>
             </li>
+            <li class="sidebar-item">
+                <a href="{{ url('layanan') }}" class="icon-people menu-icon">
+                    <span class="nav-text">Layanan</span>
+                </a>
+            </li>
             <li>
                 <a class="has-arrow" href="javascript:void()" aria-expanded="false">
                     <i class="mdi mdi-file-document menu-icon"></i> 

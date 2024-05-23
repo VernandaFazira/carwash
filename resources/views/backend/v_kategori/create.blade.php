@@ -8,11 +8,15 @@
                 <div class="card-header">{{ $judul }}</div>
 
                 <div class="card-body">
-                    <form action="/kategori" method="post">
+                    <form action="/kategori" method="post" enctype="multipart/form-data">
                         @csrf
 
                         <label for="nama_kategori">Nama Kategori</label><br>
-                        <input type="text" name="nama_kategori" id="nama_kategori">
+                        <input type="text" name="nama_kategori" id="nama_kategori" required>
+                        <br><br>
+
+                        <label for="foto">Foto</label><br>
+                        <input type="file" name="foto" id="foto" accept="image/*" required>
                         <br><br>
 
                         <button class="btn btn-primary" type="submit">Simpan</button>
@@ -23,4 +27,4 @@
         </div>
     </div>
 </div>
-@endsection 
+@endsection
